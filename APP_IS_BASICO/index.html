@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Estilo para el botón */
+        #prueba {
+            background-color: #007BFF;
+            /* Color azul */
+            color: white;
+            /* Color del texto */
+            border: none;
+            /* Sin borde */
+            padding: 12px 20px;
+            /* Espaciado interno */
+            cursor: pointer;
+            /* Cambia el cursor al pasar sobre el botón */
+            border-radius: 5px;
+            /* Bordes redondeados */
+            font-size: 16px;
+            /* Tamaño de la fuente */
+            transition: background-color 0.3s, transform 0.2s;
+            /* Transiciones suaves */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Sombra sutil */
+        }
+    
+        /* Estilo adicional al pasar el mouse */
+        #prueba:hover {
+            background-color: #0056b3;
+            /* Color azul más oscuro al pasar el mouse */
+            transform: translateY(-2px);
+            /* Eleva el botón ligeramente */
+        }
+    
+        /* Estilo al hacer clic */
+        #prueba:active {
+            transform: translateY(1px);
+            /* Baja el botón ligeramente al hacer clic */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Reduce la sombra */
+        }
+        </style>
+</head>
+
+<body>
+
+    <div id="hola">
+
+    </div>
+    <button id="prueba">click</button>
+    <hr>
+    <form id="formulario">
+        <input type="text" id="nombre">
+        <button type="submit">ENVIAR</button>
+    </form>
+    <script src="./main.js"></script>
+</body>
+
+</html>
