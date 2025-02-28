@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear DataFrame</title>
+    <link rel="stylesheet" href="dataframe.css">
+</head>
+<body>
+    <h2>Generar un DataFrame en Pandas</h2>
+    <form method="post">
+        <button type="submit">Crear DataFrame</button>
+    </form>
+    {% if tables %}
+        <h3>DataFrame Generado:</h3>
+        {{ tables|safe }}
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio de Edades</title>
+</head>
+<body>
+    <h2>Calcular Promedio de Edades</h2>
+    <form method="post">
+        <button type="submit">Calcular Promedio</button>
+    </form>
+    {% if promedio %}
+        <h3>Promedio Calculado:</h3>
+        <p>{{ promedio }}</p>
+    {% endif %}
+</body>
+</html>

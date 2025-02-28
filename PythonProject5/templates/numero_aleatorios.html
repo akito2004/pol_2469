@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Números Aleatorios</title>
+</head>
+<body>
+    <h2>Generar Números Aleatorios con NumPy</h2>
+    <form method="post">
+        <button type="submit">Generar Números</button>
+    </form>
+    {% if numeros %}
+        <h3>Números Generados:</h3>
+        <p>{{ numeros }}</p>
+    {% endif %}
+</body>
+</html>
