@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR en Tiempo Real</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>OCR en Tiempo Real</h1>
+
+        <div class="video-container">
+            <img id="video-feed" src="" alt="Flujo de video detenido">
+        </div>
+
+        <div class="text-output">
+            <h2>Texto Extraído</h2>
+            <div id="text-container"></div>
+        </div>
+
+        <div class="buttons">
+            <button id="start-camera">Iniciar Cámara</button>
+            <button id="stop-camera">Detener Cámara</button>
+            <button id="stop-audio">Detener Lectura</button>
+        </div>
+    </div>
+
+    <script>
+        let videoFeed = document.getElementById('video-feed');
+        let cameraActive = false;
+
+        // Función para iniciar la cámara
+        document.getElementById('start-camera').addEventListener('click', function() {
+            if (!cameraActive) {
+                videoFeed.src = "{{ url_for('video_feed') }}";
+                cameraActive = true;
+            }
+        });
+
+        // Función para detener la cámara
+        document.getElementById('stop-camera').addEventListener('click', function() {
+            if (cameraActive) {
+                videoFeed.src = "";
+                cameraActive = false;
+            }
+        });
+
+        // Función para detener la lectura en voz alta
+        document.getElementById('stop-audio').addEventListener('click', function() {
+            fetch('/detener_audio')
+                .then(response => response.json())
+                .then(data => alert(data.mensaje));
+        });
+
+        // Función para actualizar el texto extraído en tiempo real
+        function fetchText() {
+            fetch('/get_text')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.texto.trim()) {
+                        let textContainer = document.getElementById('text-container');
+                        let newText = document.createElement('p');
+                        newText.textContent = data.texto;
+                        textContainer.appendChild(newText);
+                        textContainer.scrollTop = textContainer.scrollHeight;
+                    }
+                });
+        }
+        setInterval(fetchText, 3000);
+    </script>
+</body>
+</html>
+
